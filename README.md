@@ -1,4 +1,4 @@
-# Stock Bull - Machine learning based Full Stack Application For Predicting Furute Market of the Stock
+# Stock Bull - Full Stack Application based on Machine Learning For Predicting Future Market of the Stock
 
 Hosted Link: https://stockbull-app.onrender.com/ 
 
