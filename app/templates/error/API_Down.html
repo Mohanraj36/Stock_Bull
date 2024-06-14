@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+<title>Stock Bull | API Down Error</title>
+{% endblock %}
+<body>
+    {% block content %}
+
+    <div class="container-fluid pt-2 px-2 bg-dark">
+        <div class="row vh-100 rounded align-items-center justify-content-center mx-0">
+            <div class="col-md-6 text-center p-4">
+                <i class="bi bi-exclamation-triangle display-1 text-danger"></i>
+                <h1 class="display-1 fw-bold text-white">😵</h1>
+                <h1 class="mb-4 text-white">API down</h1>
+                <p class="text-white mb-4">
+                    We’re sorry for inconvinience, the API Server seems to be under maintainance.
+                    Maybe go to our home page or try to use a search after few minutes?
+                </p>
+                <a class="btn btn-success rounded-pill py-3 px-5" href="{% url 'search' %}">Go Back To Predict</a>
+            </div>
+        </div>
+    </div>
+    <!-- 404 End -->
+    {% endblock %}
+</body>

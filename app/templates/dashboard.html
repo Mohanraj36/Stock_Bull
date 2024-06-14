@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Stock Bull | Dashboard</title>
+{% endblock %}
+
+
+{% block content %}
+
+<body>
+    <div class="bg-dark pb-5" style="min-height: 100vh;">
+        <div class="container-fluid pt-3 px-4">
+            <div class="container-fluid pt-3 px-4">
+                <div class="row g-4 wow slideInDown" style="animation-duration: 2s;">
+                    <div class="col-sm-6 col-xl-3">
+                        <div
+                            class="bg-warning bg-gradient rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-dark"></i>
+                            <div class="ms-3">
+                                <p class="mb-2 text-white">Over all prediction's</p>
+                                <h6 class="mb-0">{{over}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div
+                            class="bg-primary bg-gradient rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-dark"></i>
+                            <div class="ms-3">
+                                <p class="mb-2 text-white">Your Prediction's</p>
+                                <h6 class="mb-0">{{count}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div
+                            class="bg-success bg-gradient rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-dark"></i>
+                            <div class="ms-3">
+                                <p class="mb-2 text-white">Profit</p>
+                                <h6 class="mb-0">{{profit}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-danger bg-gradientrounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-dark"></i>
+                            <div class="ms-3">
+                                <p class="mb-2 text-white">Loss</p>
+                                <h6 class="mb-0">{{loss}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% for id, confidence, number_of_days, ticker_value, plot_div in plot_data %}
+            <div class="container-fluid pt-3 px-4">
+                <div class="wow slideInDown" style="animation-duration: 2s;">
+                    {% include 'base/message.html' %}
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-white text-center rounded p-4 wow bounceInDown mb-2"
+                            style="animation-duration: 2s;">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Predicted Stock Market of {{ ticker_value }} for next
+                                    {{number_of_days}} days
+                                </h6>
+                                <h6 class="mb-0">Confidence Level of Predicted Stock {{ ticker_value }} is {{ confidence }}%
+                                </h6>
+                            </div>
+                            {% block Right_Plot %}
+                            {% autoescape off %}
+                            {{ plot_div }}
+                            {% endautoescape %}
+                            {% endblock Right_Plot %}
+                            <div class="text-center mt-3">
+                                <a href="delete_graph/{{id}}" class="btn btn-warning bg-gradient">Delete</a>
+                                <a href="profit/{{id}}" class="btn btn-success bg-gradient">Profit</a>
+                                <a href="loss/{{id}}" class="btn btn-danger bg-gradient">Loss</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}

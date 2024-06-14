@@ -1,0 +1,217 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Stock Bull | Overview</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+
+    <div class="container-fluid py-3 bg-dark">
+        <h3 class="text-center bg-dark text-white"> Live Market Overview</h3>
+        <div class="container p-5">
+            <div class="row g-5 align-items-center justify-content-center">
+                <div class="col-lg-5" data-wow-delay="0.1s">
+                <!--  -->
+                    <div class="tradingview-widget-container animated bounceInRight" style="animation-duration: 3s;">
+                        <h4 class="text-center text-white"> Live Market Index</h4>
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                                ({
+                                    "colorTheme": "light",
+                                    "dateRange": "12M",
+                                    "showChart": true,
+                                    "locale": "in",
+                                    "largeChartUrl": "",
+                                    "isTransparent": false,
+                                    "showSymbolLogo": true,
+                                    "showFloatingTooltip": false,
+                                    "width": "400",
+                                    "height": "660",
+                                    "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                                    "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                                    "gridLineColor": "rgba(240, 243, 250, 0)",
+                                    "scaleFontColor": "rgba(106, 109, 120, 1)",
+                                    "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                                    "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                                    "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                                    "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                                    "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                                    "tabs": [
+                                        {
+                                            "title": "Indices",
+                                            "symbols": [
+                                                {
+                                                    "s": "FOREXCOM:SPXUSD",
+                                                    "d": "S&P 500"
+                                                },
+                                                {
+                                                    "s": "FOREXCOM:NSXUSD",
+                                                    "d": "US 100"
+                                                },
+                                                {
+                                                    "s": "FOREXCOM:DJI",
+                                                    "d": "Dow 30"
+                                                },
+                                                {
+                                                    "s": "INDEX:NKY",
+                                                    "d": "Nikkei 225"
+                                                },
+                                                {
+                                                    "s": "INDEX:DEU40",
+                                                    "d": "DAX Index"
+                                                },
+                                                {
+                                                    "s": "FOREXCOM:UKXGBP",
+                                                    "d": "UK 100"
+                                                },
+                                                {
+
+                                                    "s": "NSE:BANKNIFTY"
+                                                },
+                                                {
+                                                    "s": "NSE:NIFTY"
+                                                }
+                                            ],
+                                            "originalTitle": "Indices"
+                                        },
+                                        {
+                                            "title": "Futures",
+                                            "symbols": [
+                                                {
+                                                    "s": "CME_MINI:ES1!",
+                                                    "d": "S&P 500"
+                                                },
+                                                {
+                                                    "s": "CME:6E1!",
+                                                    "d": "Euro"
+                                                },
+                                                {
+                                                    "s": "COMEX:GC1!",
+                                                    "d": "Gold"
+                                                },
+                                                {
+                                                    "s": "NYMEX:CL1!",
+                                                    "d": "Crude Oil"
+                                                },
+                                                {
+                                                    "s": "NYMEX:NG1!",
+                                                    "d": "Natural Gas"
+                                                },
+                                                {
+                                                    "s": "CBOT:ZC1!",
+                                                    "d": "Corn"
+                                                }
+                                            ],
+                                            "originalTitle": "Futures"
+                                        }
+                                    ]
+                                })
+                            </script>
+                    </div>
+                </div>
+                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6 glow">Market Index, Features, Bonds, Forex</h1>
+                        <p class="text-white">Index is a method to track the performance of a group of assets in a
+                            standardized way.
+
+                            Futures contracts—allow traders to lock in the price of the underlying asset or commodity. 
+                            
+                            Bond trading is one way of making profit from fluctuations in the value of corporate or government bonds
+                            
+                            
+                            Forex is a global marketplace for the trading of one nation's currency for another
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container p-5">
+            <div class="row g-5 align-items-center justify-content-center">
+                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6 glow">See the top 5</h1>
+                        <p class="text-white">Gaining, losing, and most active stocks for the day. It
+                            updates based on current market activity – so you'll always see the most relevant stocks.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5 " data-wow-delay="0.1s">
+                    <div class="tradingview-widget-container  wow bounceInLeft" style="animation-duration: 3s;">
+                        <h4 class="text-center text-white"> Live Top Five</h4>
+                            <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                                    ({
+                                        "colorTheme": "light",
+                                        "dateRange": "12M",
+                                        "exchange": "BSE",
+                                        "showChart": true,
+                                        "locale": "in",
+                                        "largeChartUrl": "",
+                                        "isTransparent": false,
+                                        "showSymbolLogo": false,
+                                        "showFloatingTooltip": false,
+                                        "width": "400",
+                                        "height": "600",
+                                        "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                                        "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                                        "gridLineColor": "rgba(240, 243, 250, 0)",
+                                        "scaleFontColor": "rgba(106, 109, 120, 1)",
+                                        "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                                        "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                                        "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                                        "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                                        "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+                                    })
+                            </script>
+                    </div>
+            <!--  -->
+                </div>
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="container p-5">
+            <div class="row g-5 align-items-center justify-content-center">
+                <div class="col-lg-6" data-wow-delay="0.1s">
+       <!--  -->
+                    <div class="tradingview-widget-container wow bounceInRight" style="animation-duration: 3s;">
+                        <h4 class="text-center text-white">Live Economic Calender</h4>
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                                    ({
+                                        "colorTheme": "light",
+                                        "isTransparent": false,
+                                        "width": "510",
+                                        "height": "600",
+                                        "locale": "in",
+                                        "importanceFilter": "0,1",
+                                        "currencyFilter": "AUD,USD,CAD,EUR,FRF,DEM,INR,ITL,JPY,MXN,NZD,ZAR,ESP,CHF,TRL,GBP"
+                                    })
+                            </script>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6 glow">Economic Calender</h1>
+                        <p class="text-white"> Keep an eye on key upcoming economic events, announcements, and news.
+                            Plus, set up filters in a few clicks, selecting for event importance and affected
+                            currencies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+

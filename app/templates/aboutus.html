@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+<title>Stock Bull | About Us</title>
+{% endblock %}
+{% block content %}
+<main class="flex-shrink-0 bg-dark">
+    <header class="py-5 pb-5">
+        <div class="container px-5 pb-5 mb-5">
+            <div class="row gx-5 mt-5 align-items-center">
+                <div class="col-xxl-5">
+                    <div class="text-center text-xxl-start">
+                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                        </div>
+                        <div class="fs-3 fw-light text-muted"><strong> MOHANRAJ S <span style="font-size: xx-large;">
+                                    👋</span> </strong></div>
+                        <h1 class="display-3 fw-bolder mb-5"><span class="text-white text-gradient d-inline">Welcome to
+                                StockBull</span></h1>
+                        <p>I'm MCA Graguated, I expressed my technology skill by creating an application named <strong>
+                                StockBull </strong>is a Full Stack Web application which is used to predict the
+                            future market price of the stocks.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                            <a class="btn bg-gradient btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
+                                href="{% url 'index' %}">StockBull</a>
+                            <a class="btn bg-gradient btn-outline-white btn-lg px-5 py-3 fs-6 fw-bolder"
+                                href="#">Portfolio</a>
+                        </div>
+                        <br>
+                            <div class="text-uppercase">Python &middot; Django &middot; Machine Learning</div>
+                    </div>
+                    
+                </div>
+                <div class="col-xxl-7">
+                    <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                        <div class="profile bg-gradient-primary-to-secondary">
+                            <img class="profile-img" src="{% static 'img/MohanrajS.jpg' %}"
+                                style="width: 500px; height: 500px; border-radius: 10px; object-fit: cover;"
+                                alt="..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</main>
+{% endblock %}

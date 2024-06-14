@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+<title>Stock Bull | Invalid Date Error</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid pt-2 px-2 bg-dark">
+    <div class="row vh-100 rounded align-items-center justify-content-center mx-0">
+        <div class="col-md-6 text-center p-4">
+            <i class="bi bi-exclamation-triangle display-1 text-danger"></i>
+            <h1 class="display-1 fw-bold text-white">😬</h1>
+            <h1 class="mb-4 text-white">Invalid date format</h1>
+            <p class="text-white mb-4">
+                We’re sorry, the number of days you have entered doesn't match a valid data-type, please enter a valid
+                number of days.
+                Maybe go to predict page and enter valid date Ex: integer number 1,2,3...?
+            </p>
+            <a class="btn bg-success text-dark rounded-pill py-3 px-5" href="{% url 'search' %}">Go Back To Predict</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>

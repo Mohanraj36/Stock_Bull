@@ -1,0 +1,137 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+<title>Stock Bull | Market Info</title>
+{% endblock %}
+
+
+<body>
+    {% block content %}
+    <div class="container-fluid py-3 bg-dark">
+        <h3 class="text-center bg-dark text-white"> Live Market Info</h3>
+        <div class="tradingview-widget-container wow fadeInRightBig" data-wow-delay="0.5s">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    ({
+                        "symbols": [
+                            {
+                                "proName": "FOREXCOM:SPXUSD",
+                                "title": "S&P 500"
+                            },
+                            {
+                                "proName": "FOREXCOM:NSXUSD",
+                                "title": "US 100"
+                            },
+                            {
+                                "proName": "FX_IDC:EURUSD",
+                                "title": "EUR/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "Bitcoin"
+                            },
+                            {
+                                "proName": "BITSTAMP:ETHUSD",
+                                "title": "Ethereum"
+                            }
+                        ],
+                        "showSymbolLogo": true,
+                        "colorTheme": "light",
+                        "isTransparent": false,
+                        "displayMode": "adaptive",
+                        "locale": "in"
+                    })
+                </script>
+        </div>
+
+        <div class="container p-5">
+            <div class="row g-5 align-items-center justify-content-center">
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6 glow">Forex Cross Rates</h1>
+                        <p class="text-white">The foreign exchange market is a global decentralized or over-the-counter
+                            market for the trading of currencies. This market determines foreign exchange rates for
+                            every currency. It includes all aspects of buying, selling and exchanging currencies at
+                            current or determined prices.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8 " data-wow-delay="0.1s">
+                    <div class="tradingview-widget-container  wow bounceInLeft" style="animation-duration: 3s;">
+                        <h4 class="text-center text-white">Live Forex Cross Rates</h4>
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+
+                                document.querySelector('label__link-w6JJhLCp').remove();
+                                ({
+                                    "width": 770,
+                                    "height": 400,
+                                    "currencies": [
+                                        "EUR",
+                                        "USD",
+                                        "JPY",
+                                        "GBP",
+                                        "CHF",
+                                        "AUD",
+                                        "CAD",
+                                        "NZD",
+                                        "INR"
+                                    ],
+                                    "isTransparent": false,
+                                    "colorTheme": "light",
+                                    "locale": "in"
+                                })
+                            </script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="container p-5">
+            <div class="row g-5 align-items-center justify-content-center">
+                <div class="col-md-8" data-wow-delay="0.1s">
+                    <div class="tradingview-widget-container wow bounceInRight" style="animation-duration: 3s;">
+                        <h4 class="text-center text-white">Live Forex</h4>
+                            <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
+                                    ({
+                                        "width": 550,
+                                        "height": 400,
+                                        "currencies": [
+                                            "EUR",
+                                            "USD",
+                                            "JPY",
+                                            "GBP",
+                                            "CHF",
+                                            "AUD",
+                                            "CAD",
+                                            "NZD",
+                                            "CNY"
+                                        ],
+                                        "isTransparent": false,
+                                        "colorTheme": "dark",
+                                        "locale": "en",
+                                        "backgroundColor": "#1D222D"
+                                    })
+                            </script>
+
+                    </div>
+                </div>
+                <div class="col-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6 glow">Forex Heatmap</h1>
+                        <p class="text-white">Show off a snapshot of currency market action. This widget lets you spot
+                            strong and weak currencies and see how they compare to each other, all in real-time.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>

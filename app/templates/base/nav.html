@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block content %}
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 shadow-lg">
+    <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+        <h2 class="m-0 text-dark"><img class="img-fluid me-2 animated pulse infinite" src="{% static 'img/2.png' %}"
+                alt="" style="border-radius: 60%; width: 60px; animation-duration: 3s;">Stock Bull</h2>
+    </a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-4 py-lg-0">
+            <a href="{% url 'index' %}" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Home</a>
+            
+            {% if request.user.is_authenticated != 1%}
+            <a href="{% url 'login' %}" class="nav-item nav-link"><i class="fa fa-user-shield me-2"></i>Login</a>
+            <a href="{% url 'register' %}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Register</a>
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                <img class="rounded-circle me-lg-2" src="{% static 'img/4.jpg' %}" alt=""
+                style="width: 30px; height: 30px;">
+                <span class="d-none d-lg-inline-flex">Anonymous User</span>
+            </a>
+            {% else %}
+            <a href="{% url 'tr_live' %}" class="nav-item nav-link text-danger"><i class="bi bi-cast me-2"></i>Live</a>
+            <a href="{% url 'search' %}" class="nav-item nav-link"><i class="fa fa-search me-2"></i>Predict</a>
+            <a href="{% url 'tr_info' %}" class="nav-item nav-link"><i class="fa fa-list-alt me-2"></i>Live Market
+                Info</a>
+            <a href="{% url 'tr_overview' %}" class="nav-item nav-link"><i class="fa fa-list-alt me-2"></i>Overview</a>
+            <a href="{% url 'ticker' %}" class="nav-item nav-link"><i class="fa fa-list-alt me-2"></i>Ticker
+                Info</a>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{request.user|title}}
+                    <img class="rounded-circle me-lg-2" src="{% static 'img/4.jpg' %}"  style="width: 30px; height: 30px;">
+                </a>
+                <div class="dropdown-menu shadow-sm m-0">
+                    <a href="{% url 'dashboard' %}" class="dropdown-item">Dashboard</a>
+                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                    <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="dropdown-item">Root Admin</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+{% endblock %}

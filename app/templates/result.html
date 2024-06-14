@@ -1,0 +1,173 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Stock Bull | Predicted</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+    <!-- Start of Main Content -->
+    <div class="bg-dark">
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <h1 class="glow">{{Symbol}} stock Information</h1>
+                <div class="col-sm-12 col-xl-10">
+                    <div class="bg-white text-center rounded p-4  wow slideInUp" style="animation-duration: 2s;">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h6 class="mb-2">Information</h6>
+                            <a href="https://finance.yahoo.com/quote/{{ticker_value}}?p={{ticker_value}}">
+                                <h6>Show More</h6>
+                            </a>
+                        </div>
+                        <div class="table-responsive">
+                            <table
+                                class="table bg-dark text-white text-start align-middle table-bordered table-hover mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td>Symbol</td>
+                                        <td>{{Symbol}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>{{Name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Sale</td>
+                                        <td>{{Last_Sale}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Net Change</td>
+                                        <td>{{Net_Change}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Percent Change</td>
+                                        <td>{{Percent_Change}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Market Capital</td>
+                                        <td>{{Market_Cap}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>{{Country}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IPO Year</td>
+                                        <td>{{IPO_Year}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Volume</td>
+                                        <td>{{Volume}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sector</td>
+                                        <td>{{Sector}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Industry</td>
+                                        <td>{{Industry}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-2">
+                    <div class="bg-white text-center rounded p-4 wow slideInDown" style="animation-duration: 2s;">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h6 class="mb-0">Scan the QR Code</h6>
+                        </div>
+                        <!-- QR Code here yfinance -->
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://finance.yahoo.com/quote/{{ticker_value}}?p={{ticker_value}}"
+                            alt="QR CODE">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-white text-center rounded p-4 wow slideInLeft" style="animation-duration: 2s;">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h6 class="mb-0">Live Stock Chart of {{ticker_value}}</h6>
+                            <a class="text-dark"
+                                href="https://finance.yahoo.com/quote/{{ticker_value}}/chart?p={{ticker_value}}#">
+                                Show More
+                            </a>
+                        </div>
+                        <div class="tradingview-widget-container">
+                            <div id="tradingview_087bb" style="height: 90vh; border-radius: 5px;"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                            <script type="text/javascript">
+                                new TradingView.widget(
+                                    {
+                                        "autosize": true,
+                                        "symbol": '{{ticker_value}}',
+                                        "timezone": "America/New_York",
+                                        "theme": "dark",
+                                        "style": "1",
+                                        "locale": "in",
+                                        "withdateranges": false,
+                                        "range": "1D",
+                                        "interval": "5",
+                                        "toolbar_bg": "#f1f3f6",
+                                        "enable_publishing": false,
+                                        "hide_top_toolbar": true,
+                                        "hide_legend": true,
+                                        "save_image": false,
+                                        "container_id": "tradingview_087bb"
+                                    }
+                                );
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-white text-center rounded p-4 wow slideInRight mb-2" style="animation-duration: 2s;">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h6 class="mb-0">Predicted Stock Market of {{ticker_value}} for next
+                                {{number_of_days}} days
+                            </h6>
+                            <h6 class="mb-0">Confidence Level of Predicted Stock {{ticker_value}} is
+                                {{confidence}} %
+                            </h6>
+                        </div>
+                        {% block Right_Plot %}
+
+                        {% autoescape off %}
+                        {{ plot_div_pred }}
+                        {% endautoescape %}
+
+                        {% endblock Right_Plot %}
+
+                        <div class="mt-3">                            
+                            <input class="btn btn-primary px-4 bg-gradient" id="stsave" type="submit" onclick="stsave()" value="Save"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function stsave() {
+            $.ajax({
+                method: 'Get',
+                url: "{% url 'stsave' %}", // the endpoint
+                success: function (response) { // on success..
+                    $("#stsave").hide()
+                    return alert("Success") // update the DIV
+                },
+                error: function (e, x, r) { // on error..
+                    return alert("something went wrong") // update the DIV
+                }
+            })
+        }
+    </script>
+    {% endblock %}
+</body>

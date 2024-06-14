@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+<title>Stock Bull | Invalid Ticker Error</title>
+{% endblock %}
+<body>
+    {% block content %}
+    <div class="container-fluid pt-2 px-2 bg-dark">
+        <div class="row vh-100 rounded align-items-center justify-content-center mx-0">
+            <div class="col-md-6 text-center p-4">
+                <i class="bi bi-exclamation-triangle display-1 text-danger"></i>
+                <h1 class="display-1 fw-bold text-white">😑</h1>
+                <h1 class="mb-4 text-white">Invalid Ticker</h1>
+                <p class="text-white mb-4">
+                    We’re sorry, the ticker you have looked for does not exist in our website!
+                    Maybe go to predict page and enter valid ticker
+                </p>
+                <a class="btn btn-success text-white rounded-pill py-3 px-5" href="{% url 'search' %}">Go Back To Predict </a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+</body>

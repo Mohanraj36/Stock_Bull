@@ -1,0 +1,82 @@
+{% load static %}
+
+<body>
+    {% block content %}
+
+    <!-- Footer Start -->
+    <div class="container-fluid  shadow-lg bg-white footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h1 class="text-dark mb-4"><img class="img-fluid me-2" src="{% static 'img/2.png' %}" alt=""
+                            style="width: 45px;">Stock Bull</h1>
+                    <span class="text-dark">Stock Market site helps us to analyze and predict future market easily with the help of
+                        machine
+                        learning alogrithm and reduce the human efforts and increase the accuracy of the appropriate
+                        market future
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <!-- <h5 class="mb-4">Newsletter</h5>
+                    <p>Subscribe here for Keep in touch with Stock Bull</p>
+                    <div class="position-relative">
+                        {% include 'base/message.html' %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input class="form-control text-dark bg-transparent w-10 py-3 ps-4 pe-5 email" type="text"
+                                placeholder="Your email" name="email" id="email">
+                            <a type="button" href=""
+                                class="x btn btn-secondary text-white py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Subscribe</a>
+                        </form>
+                    </div> -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Get In Touch</h5>
+                    <p class="text-dark"><i class="fa fa-map-marker-alt me-3"></i>kanchipuram, tamilnadu, india</p>
+                    <a href="tel:9087532709"><p class="text-dark"><i class="fa fa-phone-alt me-3"></i>+908 753 2709</p></a>
+                    <a href="mailto:mohanmohanraj3778@gmail.com"><p class="text-dark"><i class="fa fa-envelope me-3"></i>mohanmohanraj3778@gmail.com</p></a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Our Services</h5>
+                    <a class="text-dark btn btn-link" href=" {% url 'tr_live' %}">Live Stock </a>
+                    <a class="text-dark btn btn-link" href="{% url 'search' %}">Stock Prediction</a>
+                    <a class="text-dark btn btn-link" href="{% url 'tr_info' %}">Live Market Info</a>
+                    <a class="text-dark btn btn-link" href="{% url 'tr_overview' %}">Overview</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <a class="btn btn-link text-dark" href="{% url 'login' %}">Login</a>
+                    <a class="btn btn-link text-dark" href="{% url 'register' %}">Register</a>
+                    <a class="btn btn-link text-dark" href="{% url 'contactus' %}">Contact Us</a>
+                    <a class="btn btn-link text-dark" href="{% url 'aboutus' %}">About Us</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Follow Us</h5>
+                    <div class="d-flex">
+                        <a class="btn btn-square rounded-circle me-1  " href="https://www.linkedin.com/in/mohanraj-s-631112201/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square rounded-circle me-1  " href="https://www.instagram.com/pirate_yes_be_warned/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square rounded-circle me-1  " href="mailto:mohanmohanraj136@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a class="btn btn-square rounded-circle me-1  " href="tel:9087532709"><i class="fa fa-phone-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="{% url 'index' %}">Stock Bull</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="https://www.linkedin.com/in/mohanraj-s-631112201/">Mohanraj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    {% endblock %}
+
+
+</body>

@@ -1,0 +1,135 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Stock Bull | Home</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+    {% if request.user.is_authenticated != 1%}
+    <div class="container-fluid hero-header bg-light py-2 mt-1 mb-1">
+        <div class="container py-3">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 mb-3 animated slideInDown">The goal of a successful trader is to make the best
+                        trades</h1>
+                    <p class="text-dark animated slideInDown">Stock trading broadly refers to any buying and selling of stock, but
+                        is colloquially used to refer to more shorter-term investments made by very active investors.
+                        Stock trading is a difficult and risky enterprise, but with education, you can work to lower
+                        risks and increase your likelihood of success.</p>
+                    <a href="{% url 'register' %}" class="btn btn-dark text-white py-3 px-4 animated slideInDown">Sign In</a>
+                </div>
+                <div class="col-lg-6 animated fadeIn">
+                    <img class="img-fluid animated pulse infinite" id="bull-img"
+                        style="animation-duration: 3s; border-radius: 50%; filter: drop-shadow(0 -6mm 6mm rgb(44, 45, 35));"
+                        src="{% static 'img/1.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="container-fluid py-3 bg-dark">        
+        {% include 'base/message.html' %}
+        <div class="container p-5">
+            <div class="row g-5 justify-content-start align-items-center">
+                <div class="col" data-wow-delay="0.1s">
+                    <div class="tradingview-widget-container animated slideInDown">
+                        <div class="tradingview-widget-container animated slideInDown">
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+  ({
+  "symbols": [
+    [
+      "Apple",
+      "AAPL|1D"
+    ],
+    [
+      "Google",
+      "GOOGL|1D"
+    ],
+    [
+      "Microsoft",
+      "MSFT|1D"
+    ]
+  ],
+  "chartOnly": false,
+  "width": 1000,
+  "height": 500,
+  "locale": "in",
+  "colorTheme": "light",
+  "autosize": false,
+  "showVolume": false,
+  "showMA": false,
+  "hideDateRanges": false,
+  "hideMarketStatus": false,
+  "hideSymbolLogo": false,
+  "scalePosition": "right",
+  "scaleMode": "Normal",
+  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+  "fontSize": "10",
+  "noTimeScale": false,
+  "valuesTracking": "1",
+  "changeMode": "price-and-percent",
+  "chartType": "line",
+  "maLineColor": "#2962FF",
+})
+  </script>
+</div>
+<!-- TradingView Widget END -->
+                    </div>
+                </div>
+                <div class="col-lg-2 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6 glow">Top Tech</h1>
+                        <p class="text-white">The best tech stocks come from companies that are building the future.
+                            Whether they manufacture sleek mobile devices or develop the digital services you can’t live
+                            without, fast-growing technology stocks can set portfolios into hyperdrive.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="container-fluid py-3 bg-dark">
+            <div class="container p-5">
+                <div class="row g-5 align-items-center justify-content-center">
+                    <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="h-100">
+                            <h1 class="display-6 glow">Technical Analysis</h1>
+                            <p class="text-white">See the AAPL technical analysis with our
+                                display ratings
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" data-wow-delay="0.1s">
+                        <div class="tradingview-widget-container animated bounceInRight"
+                            style="animation-duration: 3s;">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript"
+                                src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
+                                async>
+                                        ({
+                                            "interval": "1m",
+                                            "width": 425,
+                                            "isTransparent": false,
+                                            "height": 450,
+                                            "symbol": "NASDAQ:AAPL",
+                                            "showIntervalTabs": true,
+                                            "locale": "in",
+                                            "colorTheme": "light"
+                                        })
+                                </script>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    {% endif %}
+    {% endblock %}
+</body>

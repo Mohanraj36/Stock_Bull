@@ -1,0 +1,14 @@
+ADMIN 1
+
+ADMIN_USERNAME=ADMIN@MR
+ADMIN_EMAIL=mohanmohanraj136@gmail.com
+ADMIN_PASSWORD=STOCKBULL@ADMIN@MR
+
+USER 1
+
+USERNAME=mohanraj
+EMAIL=mohanmohanraj3778@gmail.com
+PASSWORD=mohanraj
+
+SECRET_KEY = django-insecure-0xu7ic#76c_fnzt7hdbd*3vtr41g3@bbn$y%og6==k6kw4)lct
+DATABASE_URL = postgres://stockbulldb_user:CW6XtKvDq1DrcZ3EBGRftJodj4HvuCCf@dpg-cimf6htgkuvgvhfjhbhg-a.oregon-postgres.render.com/stockbulldb

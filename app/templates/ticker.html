@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Stock Bull | Ticker</title>
+{% endblock %}
+
+
+<body>
+    {% block content %}
+    <!-- Main Content Start -->
+    <div class="container-fluid p-4 bg-dark text-center">
+        <div class="d-flex align-items-center justify-content-between">
+            <span class=" mb-4 text-white">All Tickers</span>
+            <a class="mb-4 text-white" href="https://finance.yahoo.com/trending-tickers">Show All</a>
+        </div>
+        <div class="table-responsive rounded p-2">
+            <table class="table text-start align-middle table-bordered table-hover mb-0 bg-dark">
+                <thead>
+                    <tr class="text-white text-center">
+                        <th scope="col">Ticker Symbol</th>
+                        <th scope="col">Ticker Name</th>
+                        <th scope="col">Predict</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if ticker_list %}
+                    {% for i in ticker_list %}
+                    <tr>
+                        <td class="text-white">{{i.Symbol}}</td>
+                        <td class="text-white">{{i.Name}}</td>
+                        <td class="text-white text-center"><a href="/search/{{i.Symbol}}" class="btn btn-primary w-50">{{i.Symbol}}</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <!-- Main Content Ends -->
+    {% endblock %}
+    <script type="text/javascript">
+        function LoadURL() {
+            var ticker = document.getElementById("tickerinp").value;
+            var days = document.getElementById("days").value;
+
+
+            var server = window.location.origin;
+            var path = "/predict/" + ticker + "/" + days;
+            var url = server + path;
+            window.location.href = url;
+        }
+    </script>
+</body>

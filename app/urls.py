@@ -1,0 +1,30 @@
+# from django.urls import path
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('search/', views.search, name='search'),
+    path('search/<str:ticker_value>/', views.search, name='Search'),
+    path('predict/<str:ticker_value>/<str:number_of_days>/', views.predict, name='predict'),
+    path('ticker/', views.ticker, name='ticker'),
+    path('tr_info/', views.tr_info, name='tr_info'),
+    path('tr_overview/', views.tr_overview, name='tr_overview'),
+    path('tr_live/', views.tr_live, name='tr_live'),
+    path('register/', views.reg_page, name='register'),
+    path('login/', views.login_page, name='login'),
+    path('logout/', views.logout_page, name='logout'),
+    path('forget-password/', views.forget_password, name='forget-password'),
+    path('change-password/<token>', views.change_password, name='change-password'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('contactus/', views.contactus, name='contactus'),
+    path('aboutus/', views.aboutus, name='aboutus'),
+    path('stsave/', views.stsave, name='stsave'),
+    path('dashboard/delete_graph/<int:id>',views.delete_graph, name='delete_graph'),
+    path('dashboard/profit/<int:id>', views.profit, name='profit'),
+    path('dashboard/loss/<int:id>', views.loss, name='loss'),
+    path('profile', views.profile, name='profile'),
+    path('get_form/<str:form_id>/', views.get_form, name='get_form'),
+    path('reset_pass/', views.reset_pass, name='reset_pass'),
+    path('reset_username/', views.reset_username, name='reset_username'),
+    path('reset_email/', views.reset_email, name='reset_email'),
+]
